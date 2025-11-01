@@ -282,41 +282,7 @@
     </div>
     
     <script>
-        document.getElementById('valuationForm').addEventListener('submit', async function(e) {
-            e.preventDefault();
-            
-            const formData = {
-                name: document.getElementById('name').value,
-                email: document.getElementById('email').value,
-                phone: document.getElementById('phone').value,
-                address: document.getElementById('address').value,
-                timeline: document.getElementById('timeline').value,
-                timestamp: new Date().toISOString()
-            };
-            
-            // REPLACE THIS URL WITH YOUR MAKE.COM WEBHOOK URL
-            const webhookURL = 'https://hook.us2.make.com/6tdd50cbwm7jxrd8yw8eaizcmbfw51xs';
-            
-            try {
-                const response = await fetch(webhookURL, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(formData)
-                });
-                
-                if (response.ok) {
-                    document.getElementById('formContainer').style.display = 'none';
-                    document.getElementById('successMessage').classList.add('show');
-                } else {
-                    alert('There was an issue submitting your form. Please try again.');
-                }
-            } catch (error) {
-                alert('There was an error. Please try again or call us directly.');
-                console.error('Error:', error);
-            }
-        });
+
     </script>
 </body>
 </html>
